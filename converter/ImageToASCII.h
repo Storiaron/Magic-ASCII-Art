@@ -8,7 +8,7 @@
 #include <string>
 class ImageToASCII {
  public:
-  virtual std::string getASCIIString() = 0;
+  virtual std::string getASCIIString(std::string filePath) = 0;
 };
 
 #endif //MAGIC_ASCII_ART_CONVERTER_IMAGETOASCII_H_
