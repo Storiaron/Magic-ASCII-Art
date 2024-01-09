@@ -20,6 +20,7 @@
 *************************************************/
 
 #include "libraries/EasyBMP/EasyBMP.h"
+#include "converter/BMPToASCII.h"
 using namespace std;
 
 int main( int argc, char* argv[] )
@@ -31,6 +32,8 @@ int main( int argc, char* argv[] )
 
   BMP Text;
   Text.ReadFromFile(argv[1]);
+  BMPToASCII converter;
+  converter.getASCIIString("../pics/test1.bmp");
   Text.WriteToFile("../output/test1.txt");
   return 0;
 }

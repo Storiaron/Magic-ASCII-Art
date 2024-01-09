@@ -17,12 +17,15 @@ const char* BMPToASCII::stringToCharArr(const std::string& convertee) {
 }
 std::vector<std::vector<double>> BMPToASCII::getGreyScaleValue(BMP decodedImage) {
   std::vector<std::vector<double>> greyScaleValues;
-  for(int i = 0; i < decodedImage.TellWidth(); i++) {
-    for(int j = 0; j < decodedImage.TellHeight(); j++) {
-      RGBApixel pixel = decodedImage.GetPixel(i, j);
+  for(int i = 0; i < decodedImage.TellHeight(); i++) {
+    std::vector<double> rows;
+    for(int j = 0; j < decodedImage.TellWidth(); j++) {
+      RGBApixel pixel = decodedImage.GetPixel(j, i);
       double value = RGBGreyScaleConverter::getGreyScaleValue(pixel.Red, pixel.Green, pixel.Blue);
-      greyScaleValues.at(i).at(j) = value;
+      std::cout<< value <<'\n';
+      rows.push_back(value);
     }
+    greyScaleValues.push_back(rows);
   }
   return greyScaleValues;
 }
