@@ -13,5 +13,5 @@ add_executable(Magic_ASCII_Art main.cpp
         converter/ImageToASCII.h
         converter/BMPToASCII.cpp
         converter/BMPToASCII.h
-        util/RGBGreyScaleConverter.h
-        util/RGBGreyScaleConverter.h)
+        util/UtilityCollection.h
+        util/UtilityCollection.h)
