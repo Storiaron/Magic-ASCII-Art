@@ -20,17 +20,14 @@
 *************************************************/
 
 #include "libraries/EasyBMP/EasyBMP.h"
+#include "converter/PngToAscii.h"
 using namespace std;
 
 int main( int argc, char* argv[] )
 {
-  cout << endl
-       << "Using EasyBMP Version " << _EasyBMP_Version_ << endl << endl
-       << "Copyright (c) by the EasyBMP Project 2005-6" << endl
-       << "WWW: http://easybmp.sourceforge.net" << endl << endl;
+  auto *converter = new PngToAscii("/home/k/Projects/Magic-ASCII-Art/pics/test1.png");
+  converter->loadImage();
 
-  BMP Text;
-  Text.ReadFromFile(argv[1]);
-  Text.WriteToFile("../output/test1.txt");
+  delete converter;
   return 0;
 }
