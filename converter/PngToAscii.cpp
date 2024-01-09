@@ -3,3 +3,12 @@
 //
 
 #include "PngToAscii.h"
+std::string PngToAscii::getASCIIString() {
+  return std::string();
+}
+void PngToAscii::saveASCIItoFile() {
+
+}
+std::string PngToAscii::guessFileType(std::string fileName) {
+  return std::string();
+}

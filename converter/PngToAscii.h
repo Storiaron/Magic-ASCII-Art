@@ -4,6 +4,10 @@
 
 #pragma once
 
-class PngToAscii {
-
+#include "ImageToASCII.h"
+class PngToAscii : public ImageToASCII {
+ public:
+  std::string getASCIIString() override;
+  void saveASCIItoFile() override;
+  std::string guessFileType(std::string fileName) override;
 };
