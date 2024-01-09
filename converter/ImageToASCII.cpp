@@ -1,5 +1,3 @@
-//
-// Created by User on 2024. 01. 08..
-//
-
 #include "ImageToASCII.h"
+
+ImageToASCII::ImageToASCII(const std::string &file_path) : filePath(file_path) {}
