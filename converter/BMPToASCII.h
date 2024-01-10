@@ -14,7 +14,6 @@
 #include "../util/UtilityCollection.h"
 class BMPToASCII : public ImageToASCII{
  public:
-  std::string getASCIIString(std::string filepath) override;
  private:
   std::vector<std::vector<char>> getCharRepresentation(BMP decodedImage);
   const char* stringToCharArr(const std::string& convertee);

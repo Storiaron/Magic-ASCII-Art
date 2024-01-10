@@ -3,15 +3,15 @@
 //
 #include <fstream>
 #include "BMPToASCII.h"
-std::string BMPToASCII::getASCIIString(std::string filepath) {
-  BMP image;
-  const char* filepathPointer = stringToCharArr(filepath);
-  image.ReadFromFile(filepathPointer);
-  std::vector<std::vector<char>> charRepresentation = getCharRepresentation(image);
-  save(charRepresentation);
-  delete[] filepathPointer;
-  return "";
-}
+//std::string BMPToASCII::getASCIIString(std::string filepath) {
+//  BMP image;
+//  const char* filepathPointer = stringToCharArr(filepath);
+//  image.ReadFromFile(filepathPointer);
+//  std::vector<std::vector<char>> charRepresentation = getCharRepresentation(image);
+//  save(charRepresentation);
+//  delete[] filepathPointer;
+//  return "";
+//}
 const char* BMPToASCII::stringToCharArr(const std::string& convertee) {
   char* charArr = new char[convertee.size() + 1];
   std::strcpy(charArr, convertee.c_str());

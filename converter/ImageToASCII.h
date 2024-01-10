@@ -14,12 +14,13 @@ class ImageToASCII {
 
   std::string getAsciiString();
   void saveASCIItoFile();
+  void displayAsciiString();
  protected:
   std::string filePath;
   std::vector<unsigned char> rawImage;
   unsigned width;
   unsigned height;
-  double ratio{0};
+  double ratio{0.2};
 };
 
 #endif //MAGIC_ASCII_ART_CONVERTER_IMAGETOASCII_H_
