@@ -13,11 +13,9 @@
 #include "../libraries/EasyBMP/EasyBMP_DataStructures.h"
 #include "../util/UtilityCollection.h"
 class BMPToASCII : public ImageToASCII{
- public:
  private:
-  std::vector<std::vector<char>> getCharRepresentation(BMP decodedImage);
+  void createRawImage(BMP decodedImage);
   const char* stringToCharArr(const std::string& convertee);
-  void save(const std::vector<std::vector<char>>& charRepresentation);
 };
 
 #endif //MAGIC_ASCII_ART_CONVERTER_BMPTOASCII_H_
