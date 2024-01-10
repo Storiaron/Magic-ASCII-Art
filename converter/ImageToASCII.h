@@ -11,12 +11,15 @@ class ImageToASCII {
  public:
   explicit ImageToASCII(const std::string &file_path);
   virtual ~ImageToASCII();
-  virtual std::string getASCIIString() = 0;
-  virtual void saveASCIItoFile() = 0;
-  virtual std::string guessFileType(std::string fileName) = 0;
-  //resize
+
+  std::string getAsciiString();
+  void saveASCIItoFile();
  protected:
   std::string filePath;
+  std::vector<unsigned char> rawImage;
+  unsigned width;
+  unsigned height;
+  double ratio{0};
 };
 
 #endif //MAGIC_ASCII_ART_CONVERTER_IMAGETOASCII_H_

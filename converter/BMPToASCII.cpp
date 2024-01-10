@@ -23,8 +23,8 @@ std::vector<std::vector<char>> BMPToASCII::getCharRepresentation(BMP decodedImag
     std::vector<char> rows;
     for(int j = 0; j < decodedImage.TellWidth(); j++) {
       RGBApixel pixel = decodedImage.GetPixel(j, i);
-      int value = UtilityCollection::getGreyScaleValue(pixel.Red, pixel.Green, pixel.Blue);
-      rows.push_back(UtilityCollection::getCharRepresentation(value));
+      int value = getGreyScaleValue(pixel.Red, pixel.Green, pixel.Blue);
+      rows.push_back(convertValueToChar(value));
     }
     greyScaleValues.push_back(rows);
   }
