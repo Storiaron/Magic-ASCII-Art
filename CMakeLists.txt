@@ -10,4 +10,11 @@ add_executable(Magic_ASCII_Art main.cpp
         libraries/EasyBMP/EasyBMP_DataStructures.h
         libraries/EasyBMP/EasyBMP_VariousBMPutilities.h
         converter/ImageToASCII.cpp
-        converter/ImageToASCII.h)
+        converter/ImageToASCII.h
+        libraries/LodePNG/lodepng.cpp
+        libraries/LodePNG/lodepng.h
+        converter/PngToAscii.cpp
+        converter/PngToAscii.h
+        converter/BMPToASCII.cpp
+        converter/BMPToASCII.h
+        util/UtilityCollection.h)
