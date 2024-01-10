@@ -38,10 +38,14 @@ std::string ImageToASCII::getAsciiString() {
 
 void ImageToASCII::saveASCIItoFile() {
   std::ofstream outputFile("../output/output.txt");
-  if(!outputFile.is_open()) {
-    std::cout<< "Error opening file"<<std::endl;
+  if (!outputFile.is_open()) {
+    std::cout << "Error opening file" << std::endl;
     return;
   }
   outputFile << getAsciiString();
+}
+
+void ImageToASCII::displayAsciiString() {
+  std::cout << getAsciiString();
 }
 
