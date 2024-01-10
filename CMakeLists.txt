@@ -15,4 +15,6 @@ add_executable(Magic_ASCII_Art main.cpp
         libraries/LodePNG/lodepng.h
         converter/PngToAscii.cpp
         converter/PngToAscii.h
-        util/RGBGreyScaleConverter.h)
+        converter/BMPToASCII.cpp
+        converter/BMPToASCII.h
+        util/UtilityCollection.h)
