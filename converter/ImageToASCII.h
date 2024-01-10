@@ -20,7 +20,7 @@ class ImageToASCII {
   std::vector<unsigned char> rawImage;
   unsigned width;
   unsigned height;
-  double ratio{0.2};
+  double ratio{1};
 };
 
 #endif //MAGIC_ASCII_ART_CONVERTER_IMAGETOASCII_H_
