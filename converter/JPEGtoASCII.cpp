@@ -45,7 +45,7 @@ std::string JPEGtoASCII::getAsciiString() {
         int r = rawImage[y2 * width * 3 + x2 * 3 + 0];
         int g = rawImage[y2 * width * 3 + x2 * 3 + 1];
         int b = rawImage[y2 * width * 3 + x2 * 3 + 2];
-        int lightness = ((r + g + b) / 3) * 255;
+        int lightness = ((r + g + b) / 3) + 127;
 
         result += convertValueToChar(lightness);
       }
