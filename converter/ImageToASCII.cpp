@@ -4,7 +4,8 @@
 #include "ImageToASCII.h"
 #include "../util/UtilityCollection.h"
 
-ImageToASCII::ImageToASCII(const Config &config) : filePath(config.filePath), ratio(config.ratio) {}
+ImageToASCII::ImageToASCII(const Config &config) : filePath(config.filePath), ratio(config.ratio),
+outFilePath(config.outFilePath) {}
 
 ImageToASCII::~ImageToASCII() = default;
 
@@ -35,7 +36,7 @@ std::string ImageToASCII::getAsciiString() {
 }
 
 void ImageToASCII::saveASCIItoFile() {
-  std::ofstream outputFile("../output/output.txt");
+  std::ofstream outputFile(outFilePath);
   if (!outputFile.is_open()) {
     std::cout << "Error opening file" << std::endl;
     return;

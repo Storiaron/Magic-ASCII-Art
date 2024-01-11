@@ -17,6 +17,7 @@ class ImageToASCII {
   void saveASCIItoFile();
   void displayAsciiString();
  protected:
+  std::string outFilePath;
   std::string filePath;
   std::vector<unsigned char> rawImage;
   unsigned width;
