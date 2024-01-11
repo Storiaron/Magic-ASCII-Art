@@ -47,4 +47,7 @@ void ImageToASCII::saveASCIItoFile() {
 void ImageToASCII::displayAsciiString() {
   std::cout << getAsciiString();
 }
+bool ImageToASCII::haveOutput() {
+  return !outFilePath.empty();
+}
 
