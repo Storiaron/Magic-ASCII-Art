@@ -12,7 +12,7 @@ class ImageToASCII {
   explicit ImageToASCII(const std::string &file_path);
   virtual ~ImageToASCII();
 
-  std::string getAsciiString();
+  virtual std::string getAsciiString();
   void saveASCIItoFile();
   void displayAsciiString();
  protected:
