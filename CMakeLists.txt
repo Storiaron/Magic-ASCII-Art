@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.26)
 project(Magic_ASCII_Art)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 add_executable(Magic_ASCII_Art main.cpp
         libraries/EasyBMP/EasyBMP.cpp
