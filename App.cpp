@@ -16,6 +16,7 @@ int App::run(int argc, char **argv) {
   else converter->displayAsciiString();
   return EXIT_SUCCESS;
 }
+
 void App::parseArgs(int argc, char **argv) {
   for (int i = 0; i < argc; i++) {
     if (argv[i][0] == '-') {
@@ -23,9 +24,7 @@ void App::parseArgs(int argc, char **argv) {
         case 'f':config.filePath = argv[i + 1];
           break;
         case 't':
-          if (strcmp(argv[i + 1], "bmp") == 0) config.fileType = bmp;
-          else if (strcmp(argv[i + 1], "png") == 0) config.fileType = png;
-          else if (strcmp(argv[i + 1], "jpg") == 0) config.fileType = jpg;
+          setFileType(std::string (argv[i + 1]));
           break;
         case 'o':config.outFilePath = argv[i + 1];
           break;
@@ -38,9 +37,7 @@ void App::parseArgs(int argc, char **argv) {
 
   if (config.fileType == null) {
     std::string extension = config.filePath.substr(config.filePath.find_last_of('.') + 1);
-    if (extension == "bmp") config.fileType = bmp;
-    else if (extension == "png") config.fileType = png;
-    else if (extension == "jpg") config.fileType = jpg;
+    setFileType(extension);
   }
 }
 void App::getConverter() {
@@ -54,5 +51,10 @@ void App::getConverter() {
     case null:std::cerr << "Something is wrong with the extension";
       exit(EXIT_FAILURE);
   }
+}
+void App::setFileType(const std::string &extension) {
+  if (extension == "bmp") config.fileType = bmp;
+  else if (extension == "png") config.fileType = png;
+  else if (extension == "jpg") config.fileType = jpg;
 }
 

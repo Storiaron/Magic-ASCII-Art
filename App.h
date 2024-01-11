@@ -15,4 +15,5 @@ class App {
   Config config;
   void parseArgs(int argc, char **argv);
   void getConverter();
+  void setFileType(const std::string &extension);
 };
