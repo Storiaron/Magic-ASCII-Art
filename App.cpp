@@ -7,6 +7,7 @@
 #include "App.h"
 #include "converter/BMPToASCII.h"
 #include "converter/PngToAscii.h"
+#include "converter/JPEGtoASCII.h"
 
 int App::run(int argc, char **argv) {
   parseArgs(argc, argv);
@@ -48,7 +49,8 @@ void App::getConverter() {
       break;
     case png: converter = new PngToAscii(config);
       break;
-    case jpg:
+    case jpg: converter = new JPEGtoASCII(config);
+      break;
     case null:std::cerr << "Something is wrong with the extension";
       exit(EXIT_FAILURE);
   }
