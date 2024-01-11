@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include <cmath>
+#include <iostream>
 #include "JPEGtoASCII.h"
 #include "../libraries/JPEG_Decoder/jpeg_decoder.h"
 #include "../util/UtilityCollection.h"
@@ -21,14 +22,19 @@ void JPEGtoASCII::loadFile() {
     is.close();
 
     Jpeg::Decoder d(buffer, length);
-    width = d.GetWidth();
-    height = d.GetHeight();
-    rawImage.assign(d.GetImage(), d.GetImage() + d.GetImageSize());
+    if (d.GetResult() == 0) {
+      this->width = d.GetWidth();
+      this->height = d.GetHeight();
+      this->rawImage.assign(d.GetImage(), d.GetImage() + d.GetImageSize());
+    } else
+      std::cout << "Error converting jpg: " << d.GetResult() << std::endl;
 
     delete[] buffer;
   }
 }
 std::string JPEGtoASCII::getAsciiString() {
+  int ALPHA_LEVEL = 127;
+
   if (ratio <= 0) throw std::exception();
 
   std::string result;
@@ -45,7 +51,7 @@ std::string JPEGtoASCII::getAsciiString() {
         int r = rawImage[y2 * width * 3 + x2 * 3 + 0];
         int g = rawImage[y2 * width * 3 + x2 * 3 + 1];
         int b = rawImage[y2 * width * 3 + x2 * 3 + 2];
-        int lightness = ((r + g + b) / 3) + 127;
+        int lightness = ((r + g + b) / 3) + ALPHA_LEVEL;
 
         result += convertValueToChar(lightness);
       }
