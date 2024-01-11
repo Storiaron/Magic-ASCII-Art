@@ -7,5 +7,10 @@
 #include "ImageToASCII.h"
 class JPEGtoASCII : public ImageToASCII {
  public:
+  JPEGtoASCII(const std::string &filePath) : ImageToASCII(filePath) {
+    loadFile();
+  };
+  std::string getAsciiString() override;
  private:
+  void loadFile();
 };
