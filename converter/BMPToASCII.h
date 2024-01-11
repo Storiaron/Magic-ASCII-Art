@@ -13,6 +13,8 @@
 #include "../libraries/EasyBMP/EasyBMP_DataStructures.h"
 #include "../util/UtilityCollection.h"
 class BMPToASCII : public ImageToASCII{
+ public:
+  explicit BMPToASCII(const Config &config);
  private:
   void createRawImage(BMP decodedImage);
   const char* stringToCharArr(const std::string& convertee);
