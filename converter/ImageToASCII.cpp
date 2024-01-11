@@ -26,9 +26,7 @@ std::string ImageToASCII::getAsciiString() {
         int g = rawImage[y2 * width * 4 + x2 * 4 + 1];
         int b = rawImage[y2 * width * 4 + x2 * 4 + 2];
         int a = rawImage[y2 * width * 4 + x2 * 4 + 3];
-        int lightness = ((r + g + b) / 3) * a / 255;
-
-        result += convertValueToChar(lightness);
+        result += convertValueToChar(getGreyScaleValue(r,g,b));
       }
       result += '\n';
     }
