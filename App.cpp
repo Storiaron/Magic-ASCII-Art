@@ -11,8 +11,9 @@
 int App::run(int argc, char **argv) {
   parseArgs(argc, argv);
   getConverter();
-  converter->displayAsciiString();
-  return 0;
+  if (converter->haveOutput()) converter->saveASCIItoFile();
+  else converter->displayAsciiString();
+  return EXIT_SUCCESS;
 }
 void App::parseArgs(int argc, char **argv) {
   for (int i = 0; i < argc; i++) {
@@ -27,7 +28,8 @@ void App::parseArgs(int argc, char **argv) {
           break;
         case 'o':config.outFilePath = argv[i + 1];
           break;
-        case 'r': char *ptr; config.ratio = std::strtod(argv[i + 1], &ptr);
+        case 'r': char *ptr;
+          config.ratio = std::strtod(argv[i + 1], &ptr);
           break;
       }
     }
@@ -47,8 +49,7 @@ void App::getConverter() {
     case png: converter = new PngToAscii(config);
       break;
     case jpg:
-    case null:
-      std::cerr << "Something is wrong with the extension";
+    case null:std::cerr << "Something is wrong with the extension";
       exit(EXIT_FAILURE);
   }
 }
