@@ -9,6 +9,7 @@ const char* BMPToASCII::stringToCharArr(const std::string& convertee) {
   return charArr;
 }
 void BMPToASCII::createRawImage(BMP decodedImage) {
+  decodedImage.ReadFromFile(stringToCharArr(filePath));
   height = decodedImage.TellHeight();
   width = decodedImage.TellWidth();
   for(int i = 0; i < decodedImage.TellHeight(); i++) {
@@ -21,3 +22,8 @@ void BMPToASCII::createRawImage(BMP decodedImage) {
     }
   }
 }
+BMPToASCII::BMPToASCII(const Config &config) : ImageToASCII(config) {
+  BMP decodedImage;
+  createRawImage(decodedImage);
+}
+

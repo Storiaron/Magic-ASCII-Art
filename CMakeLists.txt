@@ -18,6 +18,10 @@ add_executable(Magic_ASCII_Art main.cpp
         converter/BMPToASCII.cpp
         converter/BMPToASCII.h
         util/UtilityCollection.h
+        App.cpp
+        App.h
+        AppConfig.h
+        FileType.h
         libraries/JPEG_Decoder/jpeg_decoder.h
         converter/JPEGtoASCII.cpp
         converter/JPEGtoASCII.h)

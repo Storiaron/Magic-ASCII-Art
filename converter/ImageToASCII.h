@@ -7,15 +7,18 @@
 
 #include <string>
 #include <vector>
+#include "../AppConfig.h"
 class ImageToASCII {
  public:
-  explicit ImageToASCII(const std::string &file_path);
+  explicit ImageToASCII(const Config &config);
   virtual ~ImageToASCII();
 
   virtual std::string getAsciiString();
   void saveASCIItoFile();
   void displayAsciiString();
+  bool haveOutput();
  protected:
+  std::string outFilePath;
   std::string filePath;
   std::vector<unsigned char> rawImage;
   unsigned width;

@@ -4,7 +4,8 @@
 #include "ImageToASCII.h"
 #include "../util/UtilityCollection.h"
 
-ImageToASCII::ImageToASCII(const std::string &file_path) : filePath(file_path) {}
+ImageToASCII::ImageToASCII(const Config &config) : filePath(config.filePath), ratio(config.ratio),
+outFilePath(config.outFilePath) {}
 
 ImageToASCII::~ImageToASCII() = default;
 
@@ -26,9 +27,7 @@ std::string ImageToASCII::getAsciiString() {
         int g = rawImage[y2 * width * 4 + x2 * 4 + 1];
         int b = rawImage[y2 * width * 4 + x2 * 4 + 2];
         int a = rawImage[y2 * width * 4 + x2 * 4 + 3];
-        int lightness = ((r + g + b) / 3) * a / 255;
-
-        result += convertValueToChar(lightness);
+        result += convertValueToChar(getGreyScaleValue(r,g,b));
       }
       result += '\n';
     }
@@ -37,7 +36,7 @@ std::string ImageToASCII::getAsciiString() {
 }
 
 void ImageToASCII::saveASCIItoFile() {
-  std::ofstream outputFile("../output/output.txt");
+  std::ofstream outputFile(outFilePath);
   if (!outputFile.is_open()) {
     std::cout << "Error opening file" << std::endl;
     return;
@@ -47,5 +46,8 @@ void ImageToASCII::saveASCIItoFile() {
 
 void ImageToASCII::displayAsciiString() {
   std::cout << getAsciiString();
+}
+bool ImageToASCII::haveOutput() {
+  return !outFilePath.empty();
 }
 
