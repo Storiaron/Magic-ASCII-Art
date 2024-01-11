@@ -33,7 +33,7 @@ void JPEGtoASCII::loadFile() {
   }
 }
 std::string JPEGtoASCII::getAsciiString() {
-  int ALPHA_LEVEL = 127;
+  int ALPHA_LEVEL = 0;
 
   if (ratio <= 0) throw std::exception();
 
