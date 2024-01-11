@@ -17,4 +17,8 @@ add_executable(Magic_ASCII_Art main.cpp
         converter/PngToAscii.h
         converter/BMPToASCII.cpp
         converter/BMPToASCII.h
-        util/UtilityCollection.h)
+        util/UtilityCollection.h
+        App.cpp
+        App.h
+        AppConfig.h
+        FileType.h)
