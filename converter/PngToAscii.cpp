@@ -2,7 +2,7 @@
 #include "PngToAscii.h"
 #include "../libraries/LodePNG/lodepng.h"
 
-PngToAscii::PngToAscii(const std::string &file_path) : ImageToASCII(file_path) {
+PngToAscii::PngToAscii(const Config &config) : ImageToASCII(config) {
   loadImage();
 }
 

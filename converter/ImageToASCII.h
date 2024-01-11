@@ -7,9 +7,10 @@
 
 #include <string>
 #include <vector>
+#include "../AppConfig.h"
 class ImageToASCII {
  public:
-  explicit ImageToASCII(const std::string &file_path);
+  explicit ImageToASCII(const Config &config);
   virtual ~ImageToASCII();
 
   std::string getAsciiString();

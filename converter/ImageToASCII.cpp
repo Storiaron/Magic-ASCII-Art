@@ -4,7 +4,7 @@
 #include "ImageToASCII.h"
 #include "../util/UtilityCollection.h"
 
-ImageToASCII::ImageToASCII(const std::string &file_path) : filePath(file_path) {}
+ImageToASCII::ImageToASCII(const Config &config) : filePath(config.filePath), ratio(config.ratio) {}
 
 ImageToASCII::~ImageToASCII() = default;
 
