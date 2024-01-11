@@ -9,11 +9,11 @@
 #include "AppConfig.h"
 class App {
  public:
-  int run(int argc, char **argv);
+  int run(const int &argc, char **argv);
  private:
   ImageToASCII *converter;
   Config config;
-  void parseArgs(int argc, char **argv);
+  void parseArgs(const int &argc, char **argv);
   void getConverter();
   void setFileType(const std::string &extension);
 };

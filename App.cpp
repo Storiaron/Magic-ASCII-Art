@@ -9,7 +9,7 @@
 #include "converter/PngToAscii.h"
 #include "converter/JPEGtoASCII.h"
 
-int App::run(int argc, char **argv) {
+int App::run(const int &argc, char **argv) {
   parseArgs(argc, argv);
   getConverter();
   if (converter->haveOutput()) converter->saveASCIItoFile();
@@ -17,14 +17,13 @@ int App::run(int argc, char **argv) {
   return EXIT_SUCCESS;
 }
 
-void App::parseArgs(int argc, char **argv) {
+void App::parseArgs(const int &argc, char **argv) {
   for (int i = 0; i < argc; i++) {
     if (argv[i][0] == '-') {
       switch (argv[i][1]) {
         case 'f':config.filePath = argv[i + 1];
           break;
-        case 't':
-          setFileType(std::string (argv[i + 1]));
+        case 't':setFileType(std::string(argv[i + 1]));
           break;
         case 'o':config.outFilePath = argv[i + 1];
           break;
