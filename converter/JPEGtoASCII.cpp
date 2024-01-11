@@ -33,8 +33,6 @@ void JPEGtoASCII::loadFile() {
   }
 }
 std::string JPEGtoASCII::getAsciiString() {
-  int ALPHA_LEVEL = 0;
-
   if (ratio <= 0) throw std::exception();
 
   std::string result;
@@ -51,9 +49,8 @@ std::string JPEGtoASCII::getAsciiString() {
         int r = rawImage[y2 * width * 3 + x2 * 3 + 0];
         int g = rawImage[y2 * width * 3 + x2 * 3 + 1];
         int b = rawImage[y2 * width * 3 + x2 * 3 + 2];
-        int lightness = ((r + g + b) / 3) + ALPHA_LEVEL;
 
-        result += convertValueToChar(lightness);
+        result += convertValueToChar(getGreyScaleValue(r,g,b));
       }
       result += '\n';
     }
